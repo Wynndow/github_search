@@ -10,19 +10,3 @@ var items = [
     "html_url": "https://github.com/stephenlloyd"
   }
 ];
-//
-// function injector() {
-//   (inject(function($httpBackend) {
-//   httpBackend = $httpBackend;
-//   httpBackend
-//     .expectGET("https://api.github.com/search/users?access_token=" + gitAccessToken + "&q=hello")
-//     .respond(
-//       { items: items }
-//     );
-// }));
-// };
-//
-//
-// function sayHello() {
-//   console.log("Hello");
-// }
