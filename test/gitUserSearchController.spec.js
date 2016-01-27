@@ -19,12 +19,15 @@ describe('GitUserSearchController', function() {
     var scope, fakeSearch;
 
     beforeEach(function() {
-      fakeSearch = jasmine.createSpyObj('fakeSearch', ['query']);
+      module(function ($provide) {
 
-      module({
-        Search: fakeSearch
+        fakeSearch = jasmine.createSpyObj('fakeUserInfo', ['query']);
+
+        $provide.factory('Search', function() {
+          return fakeSearch;
+        });
+
       });
-
     });
 
     beforeEach(inject(function($q, $rootScope, $controller) {
