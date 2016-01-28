@@ -10,7 +10,7 @@ describe('GitUserSearchController', function() {
 
     it('initialises with an empty search result and term', function() {
       expect(ctrl.searchResult).toBeUndefined();
-      expect(ctrl.searchTerm).toBeUndefined();
+      expect(ctrl.searchTerm).toBe('');
     });
 
   });
