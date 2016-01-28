@@ -12,9 +12,17 @@ describe('Github Profile Finder', function() {
     expect(browser.getTitle()).toEqual('Github user search');
   });
 
-  it('finds profiles', function() {
-    searchBox.sendKeys('spike01');
+  it('finds the last spike', function() {
+    searchBox.sendKeys('spike');
     searchButton.click();
-    expect(element(by.binding('user.login')).getText()).toEqual('spike01');
+
+    var profiles = element.all(by.repeater('user in searchCtrl.searchResult.items'));
+    expect(profiles.last().getText()).toEqual('spike1292');
+  });
+
+  it('cleares the page when the search term is removed', function() {
+    searchBox.sendKeys('spike');
+    searchBox.clear();
+    expect((element(by.className('list-group'))).isDisplayed()).toBe(false);
   });
 });
